@@ -58,7 +58,7 @@ function About() {
                         {skillsHtml}
                     </div>
                     <div className="learn-more">
-                        <h2>To learn more...</h2>
+                        <h3>To learn more...</h3>
                         <Link to="/contact"><button>CONTACT ME</button></Link>
                     </div>
                 </div>

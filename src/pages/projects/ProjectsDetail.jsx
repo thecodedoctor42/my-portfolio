@@ -29,7 +29,7 @@ export default function ProjectsDetail() {
                     </a>
                 </div>
                 <p className="project-description">{thisProject.description}</p>
-                <button onClick={() => navigate("/projects")}>Go back</button>
+                <button className="back-btn" onClick={() => navigate("/projects")}>Go back</button>
             </div>
         </Main>
     )

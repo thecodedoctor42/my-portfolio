@@ -14,7 +14,9 @@ function Home() {
         return (
             <div key={project.id} id={project.id} className="project">
                 <img className="project-img" src={projectImg}/>
-                <h2>{project.name}</h2>
+                <Link to={`/projects/${project.id}`}>
+                    <h2>{project.name}</h2>
+                </Link>
             </div>
         )
     }})
@@ -39,11 +41,11 @@ function Home() {
                 <div className="home-projects">
                     {projectsHtml}
                 </div>
-                <Link to="/projects"><button >SHOW MORE</button></Link>
-                <div className="learn-more">
-                    <h2>To learn more...</h2>
-                    <Link to="/contact"><button>CONTACT ME</button></Link>
-                </div>
+                <Link to="/projects"><button className="more-btn">SHOW MORE</button></Link>
+            </div>
+            <div className="learn-more">
+                <h3>To learn more...</h3>
+                <Link to="/contact"><button>CONTACT ME</button></Link>
             </div>
         </Main>
     )
