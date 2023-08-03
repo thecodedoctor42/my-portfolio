@@ -11,7 +11,7 @@ const data = {
         },
         {
             name: "Shopping List",
-            description: "A shopping list mobile-web-app I created for my parents. After adding their desired item to the shopping list, a document will be created in a Cloud Firestore collection; allowing them both to check and update the list in real-time on anyone device. Using toch event listeners, I was able to mimic smartphone functionality: pressing an item will 'tick' its checkbox, and long-pressing an item will delete it.",
+            description: "A shopping list mobile-web-app I created for my parents. After adding their desired item to the shopping list, a document will be created in a Cloud Firestore collection; allowing them both to check and update the list in real-time on anyone device. Using touch event listeners, I was able to mimic smartphone functionality: pressing an item will 'tick' its checkbox, and long-pressing an item will delete it.",
             skills: ['react', 'firestore'],
             url: "https://shopping-list-4f8h2.netlify.app/",
             github: "https://github.com/thecodedoctor42/shopping-list",
