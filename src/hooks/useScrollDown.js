@@ -21,4 +21,4 @@ export default function useScrollDirection() {
   }, [scrollDirection]);
 
   return scrollDirection;
-};
+}

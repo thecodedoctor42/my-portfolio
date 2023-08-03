@@ -1,60 +1,63 @@
-import React, { useContext, useState } from "react"
-import {Link} from "react-router-dom"
+import { useContext, useState } from "react"
 
 import { ThemeContext } from "./ThemeContext"
 import useScrollDirection from "../hooks/useScrollDown"
-import headerImg from "../assets/Profile.png"
 
 
 function Header() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth)
     const {theme, toggleTheme} = useContext(ThemeContext)
     const scrollDirection = useScrollDirection()
-    
+
     window.addEventListener("resize", () => {
         setWindowWidth(window.innerWidth)
     })
     
     const navbarHtml = 
         <nav className="header-navbar">
-            <Link to="/"><p onClick={toggleNavMenu}>HOME</p></Link>
-            <Link to="/about"><p onClick={toggleNavMenu}>ABOUT</p></Link>
-            <Link to="/projects"><p onClick={toggleNavMenu}>PROJECTS</p></Link>
-            <Link to="/contact"><p onClick={toggleNavMenu}>CONTACT</p></Link>
-
+            <a href='/#top'>HOME</a>
+            <a href='/#home-about'>ABOUT</a>
+            <a href='/#home-projects'>PROJECTS</a>
+            <a href='/#home-contact'>CONTACT</a>
         </nav>
 
-    function toggleNavMenu(){
-        const navMenu = document.getElementById(`navbar-vert`)
-        if(navMenu.style.display === "flex"){
-            navMenu.style.display = "none"
-        } else {
-            navMenu.style.display = "flex"
-        }
+    const sidebarHtml = 
+        <nav className={`${theme}-theme header-sidebar`}>
+            <button className="close-btn" onClick={toggleSidebar}>&times;</button>
+            <a href='/#top' onClick={toggleSidebar}>HOME</a>
+            <a href='/#home-about' onClick={toggleSidebar}>ABOUT</a>
+            <a href='/#home-projects' onClick={toggleSidebar}>PROJECTS</a>
+            <a href='/#home-contact' onClick={toggleSidebar}>CONTACT</a>
+        </nav>
+
+
+    function toggleSidebar(){
+        const sidebar = document.getElementById(`sidebar`)
+        sidebar.style.right === '0px' ? sidebar.style.right = '-250px' : sidebar.style.right = '0px'
+        console.log(sidebar.style)
     }
     return (
         <header className={`${theme}-theme ${scrollDirection === "down" ? "hide" : ""}`}>
             <div className="top-nav">
-                <Link to="/">
+                <a href="/#top">
                     <div className="header-title">
-                        <img className="header-img" src={headerImg} alt="Profile picture of frontend developer, Antoni Ozturk"/>
                         <p>ANTONI OZTURK</p>
                     </div>
-                </Link>
+                </a>
                 <div className="mode-cnt">
                     <p style={{color:"#202020"}}>Light</p>
                     <div style={theme === "light" ? {justifyContent: "left"} : {justifyContent: "right"}} className={`toggle-cnt ${theme === "light" ? "light" : "dark"}-theme`} onClick={toggleTheme}>
                         <div className={`toggler-${theme === "light" ? "light" : "dark"}`}></div>
                     </div>
-                    <p style={{color:"white"}}>Dark</p>
+                    <p style={{color:"rgb(245,245,245"}}>Dark</p>
                 </div>
-                {windowWidth > 619 &&<div id="navbar-horiz">
+                {windowWidth > 619 && <div id="navbar">
                     {navbarHtml}
                 </div>}
-                <i className="ri-menu-line" onClick={toggleNavMenu}></i>
+                <i className="ri-menu-line" onClick={toggleSidebar}></i>
             </div>
-            {windowWidth < 620 && <div id="navbar-vert">
-                {navbarHtml}
+            {windowWidth < 620 && <div id="sidebar" className={`${theme}-theme`}>
+                {sidebarHtml}
             </div>}
         </header>
     )

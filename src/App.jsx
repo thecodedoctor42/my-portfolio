@@ -1,5 +1,4 @@
 // Import React components
-import React from 'react'
 import {Routes, Route} from "react-router-dom"
 
 // Import Components
@@ -9,40 +8,21 @@ import { ProjectsContextProvider } from './components/ProjectsContext'
 
 // Import Pages
 import Home from './pages/Home'
-import About from './pages/About'
-import Projects from './pages/projects/Projects'
-import ProjectsDetail from './pages/projects/ProjectsDetail'
-import Contact from './pages/Contact'
-
 
 function App() {
+
+  window.addEventListener('scroll', () => {
+    document.body.style.setProperty('--scroll', window.scrollY / (document.body.offsetHeight - window.innerHeight));
+  }, false);
 
   return (
     <ProjectsContextProvider>
       <Header />
       <Routes>
         <Route 
-          exact 
+          exact
           path='/'
           element={<Home />}
-        />
-        <Route 
-          path='/about'
-          element={<About />}
-        />
-        <Route 
-          exact 
-          path='/projects'
-          element={<Projects />}
-        />
-        <Route 
-          path="/projects/:projectId"
-          element={<ProjectsDetail />}
-          
-        />
-        <Route  
-          path='/contact'
-          element={<Contact />}
         />
       </Routes>
       <Footer />

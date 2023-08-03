@@ -1,4 +1,4 @@
-import React, {useContext} from "react"
+import {useContext} from "react"
 import {Link} from "react-router-dom"
 
 import { ThemeContext } from "./ThemeContext"
@@ -20,16 +20,16 @@ function Footer() {
             <div className="footer-right">
                 <h4>SOCIAL</h4>
                 <div className="social-icons">
-                    <a href="https://www.linkedin.com/in/antoni-ozturk-bbba81258/" target="_blank">
+                    <a href="https://www.linkedin.com/in/antoni-ozturk-bbba81258/" target="_blank" rel="noreferrer">
                         <i className="ri-linkedin-fill"></i>
                     </a>
-                    <a href="https://github.com/thecodedoctor42" target="_blank">
+                    <a href="https://github.com/thecodedoctor42" target="_blank" rel="noreferrer">
                         <i className="ri-github-fill"></i>
                     </a>
-                    <a href="https://twitter.com/code_doctor42" target="_blank">
+                    <a href="https://twitter.com/code_doctor42" target="_blank" rel="noreferrer">
                         <i className="ri-twitter-fill"></i>
                     </a>
-                    <a href="https://www.instagram.com/anantslife.98/" target="_blank">
+                    <a href="https://www.instagram.com/anantslife.98/" target="_blank" rel="noreferrer">
                         <i className="ri-instagram-fill"></i>
                     </a>
                 </div>
